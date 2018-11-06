@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>intruder_substation</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="shortcut icon" type="image ico" href="./img/elec.png">
+</head>
+<body>
+		<header>
+			<div class="container">
+				<div id="branding">
+					<h1>in<span class="highlight">.truder</span></h1>
+				<nav>
+					<ul>
+						<li><a href="index.php">home</a></li>
+						<li><a href="control-1.php">control</a></li>
+						<li><a href="monitor.php">monitor</a></li>
+						<li class="current"><a href="stream.html">stream</a></li>
+						<li><a href="about.php">about</a></li>
+					</ul>
+				</nav>
+				</div>
+			</div>
+		</header>
+
+		 			        <div class="colar">
+	        	<a onclick="changecolor('green')" id="green">#2ecc71</a>
+	        	<a onclick="changecolor('orange')" id="orange">#e67e22</a>
+	        	<a onclick="changecolor('grey')" id="grey">#A0A0A0</a>
+	        	<a onclick="changecolor('black')" id="black">#000000</a>
+	        </div>
+	</body>
+
+</html>
+
+<script type="text/javascript">
+	function changecolor(id){
+		document.body.style.background=document.getElementById(id).innerHTML;
+	}
+</script>

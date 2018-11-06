@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>intruder_substation</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="shortcut icon" type="image ico" href="./img/elec.png">
+</head>
+<body>
+		<header>
+			<div class="container">
+				<div id="branding">
+					<h1>in<span class="highlight">.truder</span></h1>
+				<nav>
+					<ul>
+						<li><a href="index.html">home</a></li>
+						<li class="current"><a href="control.html">control</a></li>
+						<li><a href="monitor.php">monitor</a></li>
+						<li><a href="stream.html">stream</a></li>
+						<li><a href="about.html">about</a></li>
+					</ul>
+				</nav>
+				</div>
+			</div>
+		</header>
+
+		<section id="showcase1">
+		 	<div class="container">
+		 			        <div class="colar">
+	        	<a onclick="changecolor('green')" id="green">#2ecc71</a>
+	        	<a onclick="changecolor('orange')" id="orange">#e67e22</a>
+	        	<a onclick="changecolor('grey')" id="grey">#A0A0A0</a>
+	        	<a onclick="changecolor('black')" id="black">#000000</a>
+	        </div>
+			  	<div class="upper1">
+			  		<ul>
+			  			<li id="Relay11" >Open</li>
+			  			<li id="Relay22" >Closed</li>
+			  		</ul>
+			  	</div>
+			  	<div class="upper">
+			  		<ul>
+			  			<li><button id="Relay1" class="button_2">Relay1</button></li>
+			  			<li><button id="Relay2" class="button_2">Relay2</button></li>
+			  		</ul>
+			  	</div>
+
+			  	<div class="lower1">
+			  		<ul>
+			  			<li id="Relay33">Closed</li>
+			  			<li id="Relay44" >Closed</li>
+			  			<li id="Relay55">Closed</li>
+			  		</ul>
+			  	</div>
+			 	<div class="lower">
+			  		<ul>
+			  			<li><button id="Relay3" class="button_2">Relay3</button></li>
+			  			<li><button id="Relay4" class="button_2">Relay4</button></li>
+			  			<li><button id="Relay5" class="button_2">Relay5</button></li>
+			  		</ul>
+			 	</div>		
+		  	</div>
+		</section>
+		<script type="text/javascript">
+	function changecolor(id){
+		document.body.style.background=document.getElementById(id).innerHTML;
+	}
+</script>
+	</body>
+</html>
+
+<?php
+
+    // Prepare variables for database connection
+   
+    $dbusername = "id7033275_subparameters";  // enter database username, I used "arduino" in step 2.2
+    $dbpassword = "02okuhle";  // enter database password, I used "arduinotest" in step 2.2
+    $server = "localhost"; // IMPORTANT: if you are using XAMPP enter "localhost", but if you have an online website enter its address, ie."www.yourwebsite.com"
+
+    // Connect to your database
+
+$connect = mysqli_connect("localhost", "id7033275_subparameters", "02okuhle", "id7033275_substation");
+$result = mysqli_query($connect,'SELECT * FROM relay ORDER BY id DESC LIMIT 1');
+
+$print = mysqli_fetch_row($result);
+
+?>
+
+<script>
+
+	    document.getElementById("Relay1").onclick = function(){
+	    		const a = "<?php echo $print[2] ?>";
+	            document.getElementById("Relay11").innerHTML = a;
+			}
+
+	    document.getElementById("Relay2").onclick = function(){
+	    		const a = document.getElementById("Relay22").innerHTML;
+				const b = 'Open';
+				const c = 'Closed';
+			if (a == c)
+			{
+				document.getElementById("Relay22").innerHTML = "Open";
+			}
+			else if(a == b)
+			{
+				document.getElementById("Relay22").innerHTML = "Closed";
+			}
+			else
+			{
+				document.getElementById("Relay22").innerHTML = "Open";
+			}	
+			}
+	    document.getElementById("Relay3").onclick = function(){
+	    		const a = document.getElementById("Relay33").innerHTML;
+				const b = 'Open';
+				const c = 'Closed';
+			if (a == c)
+			{
+				document.getElementById("Relay33").innerHTML = "Open";
+			}
+			else if(a == b)
+			{
+				document.getElementById("Relay33").innerHTML = "Closed";
+			}
+			else
+			{
+				document.getElementById("Relay33").innerHTML = "Open";
+			}	
+			}
+	    document.getElementById("Relay4").onclick = function(){
+	    		const a = document.getElementById("Relay44").innerHTML;
+				const b = 'Open';
+				const c = 'Closed';
+			if (a == c)
+			{
+				document.getElementById("Relay44").innerHTML = "Open";
+			}
+			else if(a == b)
+			{
+				document.getElementById("Relay44").innerHTML = "Closed";
+			}
+			else
+			{
+				document.getElementById("Relay44").innerHTML = "Open";
+			}	
+			}
+	    document.getElementById("Relay5").onclick = function(){
+	    		const a = document.getElementById("Relay55").innerHTML;
+				const b = 'Open';
+				const c = 'Closed';
+			if (a == c)
+			{
+				document.getElementById("Relay55").innerHTML = "Open";
+			}
+			else if(a == b)
+			{
+				document.getElementById("Relay55").innerHTML = "Closed";
+			}
+			else
+			{
+				document.getElementById("Relay55").innerHTML = "Open";
+			}	
+			}	
+
+</script>

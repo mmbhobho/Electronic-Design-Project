@@ -1,0 +1,25 @@
+<?php
+
+    // Prepare variables for database connection
+   
+    $dbusername = "id7033275_subparameters";  // enter database username, I used "arduino" in step 2.2
+    $dbpassword = "02okuhle";  // enter database password, I used "arduinotest" in step 2.2
+    $server = "localhost"; // IMPORTANT: if you are using XAMPP enter "localhost", but if you have an online website enter its address, ie."www.yourwebsite.com"
+
+    // Connect to your database
+
+$connect = mysqli_connect("localhost", "id7033275_subparameters", "02okuhle", "id7033275_substation");
+$result = mysqli_query($connect,'SELECT * FROM relay ORDER BY id DESC LIMIT 1');
+
+$print = mysqli_fetch_row($result);
+
+
+					$relay2 = "OPEN";
+
+					    $sql = "INSERT INTO relay (relay1,relay2,relay3,relay4,relay5) VALUES ('$print[2]','$relay2','$print[4]','$print[5]','$print[6]')";    
+
+					    // Execute SQL statement
+
+					    mysqli_query($connect,$sql);
+
+?>
